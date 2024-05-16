@@ -122,7 +122,7 @@ const sidebars: SidebarsConfig = {
             title: 'WCAG-succescriteria uitgelegd',
             description:
               'Een overzicht van de Web Content Accessibility Guidelines (WCAG). ' +
-              'Met per succescriterium W3C-referenties, een korte samenvatting, hoe hiervoor te testen en links naar gerelateerde NLDS-richtlijnen, bronnen en gebruikersonderzoek.',
+              'Met per succescriterium W3C-referenties, een korte samenvatting, hoe hiervoor te testen en links naar gerelateerde richtlijnen, bronnen en gebruikersonderzoek.',
 
             slug: '/wcag',
             keywords: ['WCAG', 'overzicht'],

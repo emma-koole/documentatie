@@ -5,9 +5,10 @@ hide_table_of_contents: true
 sidebar_label: Valideren
 sidebar_position: 2
 pagination_label: Valideren
-description: Hoe valideer je of je werkt met het NLDS?
+description: Hoe valideer je of je werkt met het NL Design System?
   - leverancier
   - waarom NLDS
+  - waarom NL Design System
   - waarom een design system
 ---
 

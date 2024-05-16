@@ -32,7 +32,7 @@ Door antwoord te geven op een paar simpele vragen wordt duidelijk of:
 
 Bestaat het component in het NL Design System en is het geschikt om zo voor het design te gebruiken? Heeft het component een nl- prefix, bijvoorbeeld `nl-component`?
 
-- Gebruik het NLDS component
+- Gebruik het component
 
 ## 2. Een component van een andere organisatie
 
