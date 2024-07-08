@@ -1,0 +1,168 @@
+# API Conventies
+
+## Algemeen
+
+### Doel
+
+Wanneer we deze API-conventies volgen, zorgen we ervoor dat het component robuust is. Door gebruik te maken van bekende termen kan de gebruiker (designer en developer) makkelijker zijn of haar weg vinden in de documentatie.
+
+### Scope
+
+We beperken ons tot API's die relevant zijn voor onze UI-componenten. Op een uitzondering na, zullen we geen data specifieke API's behandelen.
+
+### Publiek
+
+We moedigen een nauwe samenwerken aan tussen designers en developers. Dit document is geschreven voor beide disciplines.
+
+---
+
+## Principes
+
+### Documenteer alles
+
+Schrijf een documentatiecommentaar voor elke declaratie, zodat iedereen goed begrijpt wat de declaratie doet en hoe je het aanstuurt. Documenteer inzichten direct, die verkregen zijn vanuit het ontwerp proces, dan is het nog vers. Stel het niet uit.
+
+### Makkelijk leesbaar, toepasbaar en te onderhouden
+
+Maak toepassingen duidelijk en beknopt. Zorg ervoor dat de property of method goed leesbaar is. Ga eerder voor lang en duidelijk, dan voor kort en wellicht onduidelijk. Let er daarbij wel op dat je dubbelzinnige interpretaties en onnodige woorden vermijdt.
+
+### Consistent
+
+Ook hier is het belangrijk om consistentie na te streven door dezelfde termen en schrijfstijl te hanteren. Zo voelt de community zich thuis in de omgeving en kan makkelijker meedoen aan de ontwikkeling.
+
+---
+
+- [ ]  uitschrijven, wellicht tutorial
+
+## Hoe komt een API tot stand?
+
+- Design klaar; dekt alle use cases, laat alle varianten zien
+- API alignment tussen designer en developer
+- Checken van conventies
+- Na de API conventies > tokens
+
+---
+
+## Conventies
+
+### Algemene conventies en richtlijnen
+
+**Taal**
+
+Alle onderdelen van de API zijn in het Engels. Alle programmeertalen die gebruikt worden om het design system te bouwen, zijn in het Engels. Daarnaast zijn vrijwel alle ontwikkelaars gewend om in het Engels te werken.
+
+Bijvoorbeelden:
+
+- `utrecht-button` en geen `utrecht-knop`
+- `type=primary` en geen `type=primair`
+
+**Naamgeving voor property**
+
+Een naam van een property beschrijft *wat* iets is, niet *waarvoor* het gebruikt wordt.
+
+**Type**
+
+Bij types gebruiken we:
+
+- `enum` (lijstjes)
+- `booleans` (true/false)
+- `strings` (text)
+
+En vermijden we het gebruik van objecten.
+
+- [ ]  uitbreiden van regels rondom types
+
+**Value**
+
+De waarde geeft aan wat de mogelijkheden zijn. Kies ervoor om het doel te beschrijven in plaats van de vorm. De vorm kan per platform veranderen via tokens, maar het doel blijft hetzelfde.
+
+Bijvoorbeeld:
+
+In het rijtje `primary, secondary` past *tertiary* beter dan `ghost-button` of `text-button`
+
+**Description**
+
+In de *description* geef je een toelichting over hoe om te gaan met deze *property*. Wees kort en bondig en stel het uitschrijven niet uit.
+
+Code / Design
+
+Het is van belang dat de properties gaan over code en design, omdat we te maken hebben met UI-componenten. De *properties* en *types* kunnen meestal worden overgenomen in Figma. In dit veld vul je c*ode/design* in wanneer het betrekking heeft op beiden. In sommige gevallen gaat het alleen om code, wanneer het een *property* betreft die alleen code betreft.
+
+Voorbeeld:
+
+| Property | Type | Value | Description | Code / Design |
+| --- | --- | --- | --- | --- |
+| Variant | enum | primary, secondary, tertiary | Hierarchy in the application of the button | code/design |
+
+### Case type
+
+- constanten
+- acroniemen
+- componenten
+
+### Componenten
+
+- namespace
+- groepering
+
+### Attributes en properties
+
+- type
+- variant
+- invullen met
+    - enum
+    - string
+    - boolean
+
+### Methods
+
+- Tenzij we bijzondere gevallen vinden passen we de zelfde regels toe op methoden als beschreven bij de attributes/properties
+
+### Slots
+
+- Tenzij we bijzondere gevallen vinden passen we de zelfde regels toe op methoden als beschreven bij de attributes/properties
+
+### Custom Events
+
+- namespace
+
+### CSS
+
+- state
+- variant
+
+### Vendor prefixes
+
+- zoals: nl, gov, utrecht
+
+---
+
+## Termen lijst - welke termen gebruiken we
+
+### Properties
+
+### States
+
+### Variants
+
+---
+
+## Common tokens naamgeving
+
+### Naamgeving vanuit API alignment
+
+### Scale concepten
+
+---
+
+## Candidate
+
+### Wat veranderd er in Candidate
+
+- Prefix
+- i82n
+- color
+
+### Waar letten we op bij Candidate
+
+- Varianten moeten uitbreidbaar zijn
