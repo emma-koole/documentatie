@@ -1,5 +1,5 @@
 ---
-title: Breaking changes
+title: Versiebeheer voor design tokens
 ---
 
 ## Inleiding
@@ -8,11 +8,11 @@ Design tokens komen uiteindelijk terecht in een package. Een package is een pakk
 
 Deze packages worden geüpload naar een package registry. Een package registry is een database van alle packages die ooit zijn geüpload.
 
-Alle packages in een registry hebben een versienummer. Als er een nieuwe versie van een package wordt geüpload wordt daarvoor het versienummer van het package opgehoogd.
+Alle packages in een registry hebben een versienummer. Als er een nieuwe versie van een package wordt geüpload wordt het versienummer van het package opgehoogd.
 
 ## Semantic versioning in een notendop
 
-Bij NL Design System maken we voor het ophogen van versienummers gebruik van ‘semantic versioning’ ook wel bekend als semver. Binnen semver bestaat een versienummer uit drie delen: `major.minor.patch` (bijvoorbeeld `1.0.0`).
+Bij NL Design System maken we voor het ophogen van versienummers gebruik van ‘semantic versioning’ ook wel bekend als semver. Binnen semver bestaat een versienummer uit drie delen: `major.minor.patch` (bijvoorbeeld `1.3.2`).
 
 ### Major
 
@@ -26,6 +26,8 @@ Het ophogen van het minor deel van het versienummer gebeurt als er veranderingen
 
 Het ophogen van het patch deel van het versienummer gebeurt in de regel als er bugs zijn opgelost. Deze veranderingen zijn altijd achterwaarts compatibel. Bij het verhogen van het patch deel van het versienummer blijven het major en minor deel hetzelfde.
 
+### Waarom zijn versienummers belangrijk?
+
 Een versienummer alleen zegt niet zo veel. Door de versienummers met elkaar te vergelijken kun je als afnemer van een package zien wat de impact is van de veranderingen op code die gebruik maakt van het package.
 
 ## Hoe bepaal je het type van je verandering?
@@ -34,13 +36,13 @@ Een versienummer alleen zegt niet zo veel. Door de versienummers met elkaar te v
 
 Breaking changes in design tokens zijn veranderingen die voor afnemers van je package negatieve gevolgen kunnen hebben. Het zijn veranderingen die niet achterwaarts compatibel zijn waardoor bestaande code niet meer werkt zoals voorheen.
 
-Het resultaat hiervan is op de een of andere manier kapot. Soms is dit heel duidelijk, bijvoorbeeld spacing die helemaal is verdwenen. Soms is het subtieler en misschien niet meteen zichtbaar, een hover kleur die is aangepast.
+Er gaat op de een of andere manier iets kapot. Soms is dit heel duidelijk, bijvoorbeeld spacing die helemaal is verdwenen. Soms is het subtieler en misschien niet meteen zichtbaar.
 
 Breaking changes zijn zoals [hierboven uitgelegd](#major), veranderingen die ervoor zorgen dat het **major** deel van het versienummer opgehoogd moet worden.
 
 #### Voorbeelden van breaking changes in design tokens
 
-De eenvoudigste soort breaking change van een design token ontstaat als je een design token verwijdert. Gebruikers die dit verwijderde design token in hun code gebruiken zien bij het gebruik van een nieuwe versie dat hun code niet meer werkt zoals voorheen.
+De eenvoudigste soort breaking change van een design token ontstaat als je een design token verwijdert. Afnemers die dit verwijderde design token in hun code gebruiken zien bij het gebruik van een nieuwe versie dat hun code niet meer werkt zoals voorheen.
 
 **Voorbeeld 1**: Het verwijderen van de design token `example.button.icon.space` zou ervoor zorgen dat de ruimte tussen het icoon en de tekst van een button komt te vervallen. De button gaat door deze verandering kapot.
 
@@ -57,7 +59,7 @@ Breaking changes zijn, ondanks dat hun naam het doet vermoeden, niet per se erg.
 
 ### Nieuwe features
 
-Nieuwe features, voor designers hoofdzakelijk nieuwe design tokens, zijn veranderingen die ervoor zorgen dat het **minor** deel van het versienummer opgehoogd moet worden.
+Nieuwe features, bijvoorbeeld nieuwe design tokens of een nieuwe property ‘dismissable‘, zijn veranderingen die ervoor zorgen dat het **minor** deel van het versienummer opgehoogd moet worden.
 
 **Voorbeeld**: Je maakt een nieuw design token `example.button.box-shadow` aan dat gebruikt kan worden een button een drop shadow te geven.
 
@@ -67,23 +69,25 @@ In Tokens Studio kun je aan design tokens beschrijvingen toevoegen. Als je in de
 
 ## Breaking changes uitstellen
 
-Om te voorkomen dat een wijziging meteen een breaking change is kun je ervoor kiezen om een nieuw design token naast een te verwijderen design te laten bestaan. Hierbij wordt het te verwijderen token eerst gemarkeerd als achterhaald (in het Engels ‘deprecated’) en niet meteen helemaal verwijderd.
+Om te voorkomen dat een wijziging meteen een breaking change is kun je ervoor kiezen om een nieuw design token naast een te verwijderen design te laten bestaan. Hierbij wordt het te verwijderen token eerst gemarkeerd als ‘deprecated’ (in het Nederlands ‘achterhaald’) en niet direct verwijderd.
 
 **Voorbeeld**: De naam van de design token `example.button.icon.space` moet veranderen in `example.button.column-gap`.
 
 1. Maak eerst de nieuwe design token `example.button.column-gap` aan.
-1. Laat het oude design token `example.button.icon.space` verwijzen naar de waarde van de nieuwe design token: `{example.button.column-gap}`.
-1. Markeer de oude design token `example.button.icon.space` als ‘deprecated’ bijvoorbeeld door er een sticker bij te zetten of door de beschrijving aan te passen.
+1. Verander de waarde van de oude design token `example.button.icon.space` naar de naam van de nieuwe design token: `{example.button.column-gap}`.
+1. Markeer de oude design token `example.button.icon.space` als ‘deprecated’ door `[deprecated]` aan de beschrijving van de token toe te voegen.
 
-Doordat je de oude token niet verwijdert maar markeert als ‘deprecated’ vertel je gebruikers die de design token al gebruiken dat ze voor nieuwe code de design token niet meer moeten gebruiken en dat ze bestaande code zullen moeten aanpassen. Hoe code moet worden aangepast geef je aan in een changelog. Meer daarover hieronder.
-
-Stel de huidige versie van je package is 1.x.x en je wilt op termijn een design token verwijderen. Afnemers van het package die nu versie 1.x.x gebruiken zien
+Doordat je de oude token niet verwijdert maar markeert als ‘deprecated’ informeer je afnemers dat ze voor nieuwe code de design token niet meer moeten gebruiken. Ze weten ook dat te op termijn bestaande code zullen moeten aanpassen. Hoe code moet worden aangepast geef je aan in een changelog. Meer daarover hieronder.
 
 ## Communiceer over je veranderingen
+
+Je weet zelf het best wat je veranderd hebt. De afnemer van de design tokens weet dit niet. Het is daarom wel zo netjes om afnemers te informeren over de veranderingen. We leggen uit hoe je dat precies kunt doen.
 
 Als je een [pull request hebt aangemaakt](/handboek/designer/stappenplan/#verstuur-aanpassingen-naar-github) geef je daar met een extra commit aan wat je precies veranderd hebt. De beschrijving die je hierbij opgeeft komt terecht in de changelog van het package.
 
 ### Situatie A: in het NL Design System “themes” repository
+
+Werk je vanuit de NL Design System “themes” repository? Volg dan onderstaande stappen.
 
 Ga naar de lijst met [pull requests](https://github.com/nl-design-system/themes/pulls) en zoek je eigen pull request op.
 
@@ -114,6 +118,8 @@ Deprecated design token example.button.icon.spacing verwijderd
 ```
 
 ### Situatie B: in je eigen repository
+
+Werk je vanuit een eigen repository? Volg dan onderstaande stappen.
 
 Ga naar de lijst met pull requests en zoek je eigen pull request op.
 
