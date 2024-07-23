@@ -1,0 +1,105 @@
+# API Alignment
+
+## Wat is API-Alignment en waarom hebben we het nodig?
+
+### API
+
+Een API is een Application Programming Interface die je kunt gebruiken voor UI-componenten. Door te standaardiseren hoe componenten worden gebruikt en geïntegreerd, zorgt een API ervoor dat componenten efficiënter kunnen worden hergebruikt, aangepast en onderhouden.
+
+### Alignment
+
+De ‘Alignment’, of afstemming, gaat over het vaststellen van het type en de naamgeving van de properties en gebeurt tussen designers en developers.
+
+### Waarom zijn designers betrokken?
+
+De ‘Alignment’ helpt ontwerpers om de reikwijdte en het gebruik van een component verder te definiëren. Bijvoorbeeld, je kunt een button variant de naam ‘Tertiairy’ of ‘ghost-button’ geven. Hoe je deze naam definieert, beïnvloedt hoe je het gebruik ervan afleid. Tertiair beschrijft hoe het is opgewassen tegenover een primaire en secundaire button, terwijl een Ghost-button alleen het design beschrijft.
+
+### Waarom moeten we afstemmen?
+
+Wanneer je geen afstemming hebt, kan dit verder gaan dan alleen de naamgeving en kan leiden tot andere misverstanden over bijvoorbeeld de functionaliteit en toepassing van een component. Zelfs een kleine afwijking in definities kan leiden tot een discrepantie. En dat willen we voorkomen als we het design systeem overeind willen houden.
+
+Wanneer je succesvol afstemt, kun je de uitkomst gemakkelijk implementeren, aangezien Figma dezelfde properties ondersteunt als in code. De representatie van een component zal hetzelfde zijn in design als in code.
+
+Verderop in dit artikel leer je dat ook voordelen heeft voor de handoff en tokens.
+
+## Hoe werkt de API-Alignment?
+
+Kort gezegd is de API-Alignment een meeting tussen designers en developers om de specificaties van componenten af te stemmen. Hier definiëren de partijen gezamenlijk de taxonomie, structuur en de properties van het component.
+
+### Voorbereidingen
+
+Voordat je de meeting begint, bereidt de designer het component voor, door alle states en variants te ontwerpen die nodig zijn om de use cases van de componenten te ondersteunen. Zo’n volledig overzicht helpt enorm bij het beslissen over de naamgeving van de properties.
+
+- [ ]  voorbeeld toevoegen
+
+### De API-Alignment meeting
+
+Je kunt deze sjabloon gebruiken en de stappen volgen.
+
+- [ ]  link toevoegen
+
+#### Taxonomie
+
+Hier benoem je de componenten en elementen binnenin. Het wordt aanbevolen om individueel enkele ideeën voor namen op te schrijven en het resultaat samen te bespreken. Bij naamgeving is het belangrijk dat het een duidelijke boodschap overbrengt dat door iedereen wordt begrepen en niet in conflict is met andere concepten die elders worden gebruikt.
+
+Het zal je helpen om andere design systemen en web/app-standaarden te bestuderen. Natuurlijk is er ruimte voor specifieke componenten die een specifieke naam nodig hebben. Echter, componenten die op grote schaal door andere design systemen worden gebruikt, kunnen als zodanig worden genoemd.
+
+#### Structuur
+
+Hier kun je de containers of elementen schetsen die je nodig hebt om de component te bouwen en de elementen in de juiste volgorde rangschikken. Dit betekent in feite dat je alle Figma-lagen schetst en ze vergelijkt met div-containers.
+
+Hoewel Figma een geweldig hulpmiddel is dat dicht bij web mogelijkheden ligt, moet je soms een extra laag toevoegen voor je AutoLayout-instellingen, wat bij het webcomponent niet per se hoeft te worden ondersteunen. In dat geval kun je de lagen als zodanig markeren.
+
+- [ ]  Voorbeeld van Tie fighter toevoegen
+
+#### Eigenschappen
+
+Hier kun je een tabel maken voor alle properties. Samen met het voorbeeld van het component hierboven, loop je door de tabel en vul je in:
+
+- De naam van de property
+- Het type property dat je nodig hebt, zoals:
+    - boolean
+    - string
+    - enum
+- De waarden (value) die elke property ondersteunt
+- En een beschrijving van de property voor documentatiedoeleinden
+
+## Documenten die je helpen beslissen.
+
+In het API-conventie document vind je enkele aanwijzingen over hoe je de API van de componenten kan ontwerpen. Het beantwoordt vragen over:
+
+- Wanneer moet je enum, string of boolean property gebruiken?
+- Hoe noem je een property?
+- Welke prefix moet je gebruiken?
+
+## Je workflow optimaliseren.
+
+### Design tokens
+
+Voor design tokens gebruiken we BEM (Block, Element, Modifier), waarmee je je CSS-classes een naam kunt geven op een manier die de relatie tussen HTML en CSS beschrijft. De properties die in de API-afstemming zijn gedefinieerd, hebben betrekking op de anatomie. Als je eenmaal het onderstaande concept begrijpt, is het veel gemakkelijker om de design tokens te beschrijven of misschien zelfs te genereren.
+
+Voorbeeld:
+
+- anatomie; button, icon, label
+- types: primair, secundair, tertiair
+- states: default, hover, active, disabled
+
+Met het bovenstaande kun je de volgende tokens maken:
+
+`button.primary.default.background.color`
+
+En voor icon:
+
+`button.icon.primary.default.color`
+
+- [ ] token naam herzien
+- [ ] schema toevoegen
+
+### De API-Alignment meeting optimaliseren
+
+Meetings zijn duur, en om er het meeste uit te halen, kun je het volgende overwegen:
+
+1. Bereid de meeting goed voor door properties van developers op te vragen.
+2. Voeg deze properties toe aan de tabel en markeer de eigenschappen die mogelijk discussies veroorzaken.
+3. Stuur een link naar het Figjam- of Miro-board vóór de meeting ter beoordeling.
+4. Bereid meerdere componenten tegelijk voor; zodra je vastloopt op een component (vanwege een lopende discussie of omdat je input moet verzamelen buiten de aanwezige groep om), ga je direct naar het volgende component. Op deze manier kun je toch een aantal componenten behandelen en kun je de issues buiten de meeting om oplossen.
