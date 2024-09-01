@@ -1,5 +1,21 @@
 # @nl-design-system-unstable/documentation
 
+## 1.2.0
+
+### Minor Changes
+
+- 2b9d190: Fixt gebroken links in patronen en richtlijnen.
+- 5849941: Uitleg bij [WCAG-succescriterium 2.4.3 Focus volgorde](https://nldesignsystem.nl/wcag/2.4.3/) uitgebreid en testinstructies toegevoegd.
+- 930aeac: Extra richtlijn speciaal over toetsenbordnavigatie toegevoegd, die was weggevallen na de reorganisatie van de richtlijn-pagina's.
+  [Zorg dat het formulier werkt met een toetsenbord](/richtlijnen/formulieren/toetsenbord/toetsenbordnavigatie).
+- adf29b4: Uitleg bij [WCAG-succescriterium 1.3.2 Betekenisvolle volgorde](https://nldesignsystem.nl/wcag/1.3.2) uitgebreid en testinstructies toegevoegd.
+- 0caad23: Samenvatting toegevoegd voor het [WCAG-succescriterium 1.2.6 Gebarentaal (vooraf opgenomen)](/wcag/1.2.6).
+- f88f6ee: Samenvatting toegevoegd voor het [WCAG-succescriterium 1.2.7 Verlengde audiodescriptie (vooraf opgenomen)](/wcag/1.2.7).
+- c5d07bc: Samenvatting toegevoegd voor het [WCAG-succescriterium 1.2.8 Media-alternatief (vooraf opgenomen)](/wcag/1.2.8).
+- 502370e: Samenvatting toegevoegd voor het [WCAG-succescriterium 1.2.9 Louter-geluid (live)](/wcag/1.2.9).
+- c909212: Samenvatting toegevoegd voor het [WCAG-succescriterium 1.4.8 Visuele weergave](/wcag/1.4.8).
+- 860896f: Samenvatting toegevoegd voor het [WCAG-succescriterium 2.5.5 Grootte van het aanwijsgebied (uitgebreid)](/wcag/2.5.5).
+
 ## 1.1.0
 
 ### Minor Changes
